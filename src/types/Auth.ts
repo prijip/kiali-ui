@@ -13,8 +13,7 @@ export type AuthInfo = {
 export enum AuthStrategy {
   login = 'login',
   anonymous = 'anonymous',
-  openshift = 'openshift',
-  ldap = 'ldap'
+  openshift = 'openshift'
 }
 
 // Stores the result of a computation:
