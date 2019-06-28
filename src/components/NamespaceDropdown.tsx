@@ -133,8 +133,16 @@ export class NamespaceDropdown extends React.PureComponent<NamespaceListType, {}
       <>
         <div>
           <input type="text" onChange={this.onValueChange} />
-          <Button onClick={this.onTextEnter}>Submit</Button>
+          <Button onClick={this.onTextEnter} variant="primary" size="sm">
+            Submit
+          </Button>
         </div>
+        <div className="text-right">
+          <Button disabled={this.props.activeNamespaces.length === 0} bsStyle="link" onClick={this.props.clearAll}>
+            Clear all
+          </Button>
+        </div>
+        <div>{this.props.activeNamespaces}</div>
       </>
     );
   }
