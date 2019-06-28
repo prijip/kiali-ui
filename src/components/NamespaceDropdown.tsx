@@ -93,8 +93,6 @@ export class NamespaceDropdown extends React.PureComponent<NamespaceListType, {}
   };
 
   onTextEnter = (event: any) => {
-    // this.props.setFilter(this.namespace);
-    // this.props.activeNamespaces[0] = { name: this.namespace };
     this.onNamespaceToggled(this.namespaceText);
   };
 
@@ -133,16 +131,17 @@ export class NamespaceDropdown extends React.PureComponent<NamespaceListType, {}
       <>
         <div>
           <input type="text" onChange={this.onValueChange} />
-          <Button onClick={this.onTextEnter} variant="primary" size="sm">
-            Submit
-          </Button>
+          <div className="text-left">
+            <Button onClick={this.onTextEnter} variant="primary" size="sm">
+              Submit
+            </Button>
+          </div>
+          <div className="text-right">
+            <Button disabled={this.props.activeNamespaces.length === 0} bsStyle="link" onClick={this.props.clearAll}>
+              Clear all
+            </Button>
+          </div>
         </div>
-        <div className="text-right">
-          <Button disabled={this.props.activeNamespaces.length === 0} bsStyle="link" onClick={this.props.clearAll}>
-            Clear all
-          </Button>
-        </div>
-        <div>{this.props.activeNamespaces}</div>
       </>
     );
   }
